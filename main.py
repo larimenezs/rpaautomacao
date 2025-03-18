@@ -26,13 +26,13 @@ def direita(posicoes_imagem):
 # Abrir o ERP (Fakturama)
 subprocess.Popen([r"C:\Program Files\Fakturama2\Fakturama.exe"])
 
-# encontrou = None
-# encontrou = x, y, largura, altura
+# Encontrou = None
+# Encontrou = x, y, largura, altura
 encontrou = encontrar_imagem("fakturama.png")
 
-# fakturama está aberto
+# Fakturama está aberto
 
-# como fazer isso para vários produtos
+# Como fazer isso para vários produtos
 tabela_produtos = pd.read_excel("Produtos.xlsx")
 print(tabela_produtos)
 for linha in tabela_produtos.index:
@@ -55,7 +55,7 @@ for linha in tabela_produtos.index:
     encontrou = encontrar_imagem("new_product.png")
     pyautogui.click(pyautogui.center(encontrou))
 
-    # preencher todos os campos
+    # Preencher todos os campos
     encontrou = encontrar_imagem("item_number.png")
     pyautogui.click(direita(encontrou))
     escrever_texto(str(id))
@@ -95,7 +95,7 @@ for linha in tabela_produtos.index:
     estoque_texto = f"{estoque:.2f}".replace(".", ",")
     escrever_texto(str(estoque_texto))
 
-    # selecionar a imagem
+    # Celecionar a imagem
     encontrou = encontrar_imagem("select_picture.png")
     pyautogui.click(pyautogui.center(encontrou))
 
@@ -103,6 +103,6 @@ for linha in tabela_produtos.index:
     escrever_texto(rf"C:\Users\joaol\Downloads\{str(imagem)}")
     pyautogui.press("enter")
 
-    # clicar em salvar
+    # Clicar em salvar
     encontrou = encontrar_imagem("botaosave.png")
     pyautogui.click(pyautogui.center(encontrou))
